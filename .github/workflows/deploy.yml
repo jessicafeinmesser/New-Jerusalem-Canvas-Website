@@ -25,10 +25,11 @@ jobs:
     - name: 🏗️ Build Project
       run: npm run build
       env:
-        # Pass any environment variables needed at build time
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} 
         VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
-        # Add other VITE_ variables if you have them
+
+    - name: 🔍 Verify Build Output
+      run: ls -R ./dist
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -37,7 +38,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
-        server-dir: ./public_html/
+        server-dir: public_html/
         protocol: ftp
         port: 21
         dangerous-clean-slate: true
