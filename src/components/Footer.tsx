@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, ShoppingBag, Lock } from 'lucide-react';
+import { Instagram, MessageCircle, ShoppingCart, Lock } from 'lucide-react';
 import { useFirebase } from './FirebaseProvider';
 import { signInWithGoogle } from '../lib/firebase';
 
@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="flex space-x-4 mb-6">
             <a href="https://www.instagram.com/thejerusalemcanvas" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><Instagram size={18} /></a>
             <a href="https://wa.me/message/335AU7PT2NYGJ1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><MessageCircle size={18} /></a>
-            <a href="https://thejerusalemcanvas.etsy.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><ShoppingBag size={18} /></a>
+            <a href="https://thejerusalemcanvas.etsy.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><ShoppingCart size={18} /></a>
           </div>
           <p className="text-gray-400 text-xs italic mb-4">
             Based in Israel.

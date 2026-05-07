@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, Instagram, MessageCircle, ShoppingBag, MapPin, Mail, Phone } from 'lucide-react';
+import { Send, Instagram, MessageCircle, ShoppingCart, MapPin, Mail, Phone } from 'lucide-react';
 import SectionHeader from '@/src/components/SectionHeader';
 import { submitInquiry } from '@/src/services/inquiryService';
 
@@ -87,7 +87,7 @@ export default function Contact() {
               <div className="flex space-x-4">
                 <a href="#" className="w-12 h-12 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><Instagram size={20} /></a>
                 <a href="#" className="w-12 h-12 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><MessageCircle size={20} /></a>
-                <a href="#" className="w-12 h-12 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><ShoppingBag size={20} /></a>
+                <a href="#" className="w-12 h-12 border border-gray-100 flex items-center justify-center rounded-full text-gray-400 hover:bg-brand-pink/20 hover:text-brand-gold transition-all duration-300"><ShoppingCart size={20} /></a>
               </div>
             </div>
           </motion.div>

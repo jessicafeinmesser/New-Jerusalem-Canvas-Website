@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, MessageCircle, ShoppingBag } from 'lucide-react';
+import { Menu, X, Instagram, MessageCircle, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 
@@ -26,7 +26,7 @@ export default function Navbar() {
   const socialLinks = [
     { icon: <Instagram size={20} />, url: 'https://www.instagram.com/thejerusalemcanvas', label: 'Instagram' },
     { icon: <MessageCircle size={20} />, url: 'https://wa.me/message/335AU7PT2NYGJ1', label: 'WhatsApp' },
-    { icon: <ShoppingBag size={20} />, url: 'https://thejerusalemcanvas.etsy.com', label: 'Etsy' },
+    { icon: <ShoppingCart size={20} />, url: 'https://thejerusalemcanvas.etsy.com', label: 'Etsy' },
   ];
 
   return (

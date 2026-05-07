@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ShoppingBag } from 'lucide-react';
+import { X, ShoppingCart } from 'lucide-react';
 import { Artwork } from '@/src/constants';
 import { Link } from 'react-router-dom';
 
@@ -75,7 +75,7 @@ export default function ArtModal({ artwork, onClose }: ArtModalProps) {
                   to="/contact"
                   className="bg-gray-900 text-white text-center py-4 uppercase tracking-[0.2em] text-[10px] font-bold hover:bg-brand-gold transition-colors flex items-center justify-center group"
                 >
-                  <ShoppingBag size={14} className="mr-2" /> Inquire About This Piece
+                  <ShoppingCart size={14} className="mr-2" /> Inquire About This Piece
                 </Link>
                 <p className="text-[9px] text-gray-400 text-center uppercase tracking-widest">
                   Custom sizes and framing available upon request
