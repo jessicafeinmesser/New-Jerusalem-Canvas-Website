@@ -1,0 +1,71 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Note: In AI Studio, we can't easily bootstrap an 'admins' collection 
+    // without manual DB intervention, so we'll check by email for this specific user
+    // or assume the first setup user is admin. For now, we'll allow the user's specific email.
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'thejerusalemcanvas@gmail.com' &&
+        request.auth.token.email_verified == true
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // --- Validations ---
+    function isValidArtwork(data) {
+      return data.title is string && data.title.size() > 0 && data.title.size() <= 200 &&
+             data.collection is string && data.collection.size() <= 100 &&
+             data.imageUrl is string && data.imageUrl.size() <= 2000 &&
+             (data.get('description', '') is string && data.get('description', '').size() <= 5000) &&
+             (data.get('price', '') is string && data.get('price', '').size() <= 100);
+    }
+
+    function isValidInquiry(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 200 &&
+             data.email is string && data.email.size() > 0 && data.email.size() <= 200 &&
+             data.message is string && data.message.size() > 0 && data.message.size() <= 5000 &&
+             data.createdAt == request.time;
+    }
+
+    // --- Collections ---
+
+    match /artworks/{artworkId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidArtwork(incoming());
+      allow update: if isAdmin() && isValidArtwork(incoming());
+      allow delete: if isAdmin();
+    }
+
+    match /inquiries/{inquiryId} {
+      allow read: if isAdmin();
+      allow create: if isValidInquiry(incoming());
+      allow update, delete: if isAdmin();
+    }
+  }
+}

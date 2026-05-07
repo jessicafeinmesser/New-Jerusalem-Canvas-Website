@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "Artwork": {
+      "title": "Artwork",
+      "description": "A painting or art piece in the gallery",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the painting" },
+        "collection": { "type": "string", "description": "Collection name" },
+        "imageUrl": { "type": "string", "description": "URL to the image" },
+        "description": { "type": "string", "description": "Details about the piece" },
+        "price": { "type": "string", "description": "Optional price" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "collection", "imageUrl"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "A contact form submission",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "type": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message"]
+    }
+  },
+  "firestore": {
+    "/artworks/{artworkId}": {
+      "schema": "Artwork",
+      "description": "Collection of paintings"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "User contact inquiries"
+    }
+  }
+}
