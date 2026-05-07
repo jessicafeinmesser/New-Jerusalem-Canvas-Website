@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#996515;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background Splash -->
+  <circle cx="256" cy="256" r="240" fill="#f8f4f0" />
+  <path d="M150,150 Q256,100 362,150 T450,256 T362,362 T256,412 T150,362 T50,256 T150,150" fill="#fdf2f8" opacity="0.6" />
+  
+  <!-- Frame -->
+  <rect x="80" y="80" width="352" height="352" fill="none" stroke="url(#goldGrad)" stroke-width="8" rx="4" />
+  
+  <!-- Initials for better legibility at small sizes -->
+  <text x="256" y="280" font-family="serif" font-weight="bold" font-size="200" fill="#111827" text-anchor="middle" font-style="italic">JC</text>
+  <text x="256" y="380" font-family="serif" font-weight="bold" font-size="24" fill="#6b7280" text-anchor="middle" letter-spacing="4">JERUSALEM</text>
+</svg>
