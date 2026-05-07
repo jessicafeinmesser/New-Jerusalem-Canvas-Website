@@ -106,8 +106,8 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <SectionHeader 
-                accent="Expertise"
-                title="Sacred Artistry"
+                accent="Our Focus"
+                title="Art That Inspires"
                 centered={false}
               />
               <p className="text-gray-600 mb-10 leading-relaxed text-lg font-light">
